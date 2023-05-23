@@ -1,0 +1,15 @@
+nav{
+    background-color:#0f243b ;
+
+}
+nav .container-fluid img{
+    height: 6rem;
+}
+nav .container-fluid .navbar-brand{
+    margin-left: 2rem;
+    color: var(--bs-primary);
+    font-size: 3rem;
+}
+nav .container-fluid a span{
+    color: var(--bs-secondary);
+}
