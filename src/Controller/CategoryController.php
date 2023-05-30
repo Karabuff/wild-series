@@ -17,7 +17,6 @@ class CategoryController extends AbstractController
     public function index(CategoryRepository $categoryRepository): Response
     {
          $categories = $categoryRepository->findAll();
-
          return $this->render(
              'category/index.html.twig',
              ['categories' => $categories]
@@ -35,6 +34,7 @@ class CategoryController extends AbstractController
                 'No category with name :' . $categoryName . 'found in category table'
             );
         }
+        
         return $this->render('category/show.html.twig', ['category' => $category,'programs'=>$programs]);
     }
 }
