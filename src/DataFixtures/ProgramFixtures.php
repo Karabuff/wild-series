@@ -14,31 +14,31 @@ class ProgramFixtures extends Fixture implements DependentFixtureInterface
             'title' => 'Walking Dead',
             'synopsis' => 'Des zombies envahissent la terre',
             'category' => 'category_Horreur',
-            'reference' => 'program_WalkingDead'
+            'reference' => 'program_1'
         ],
         [
             'title' => 'Kenshin',
             'synopsis' => 'un ancien samourai fuit sont passé',
             'category' => 'category_Animation',
-            'reference' => 'program_Kenshin'
+            'reference' => 'program_2'
         ],
         [
             'title' => 'Breaking Bad',
             'synopsis' => 'Je crois que ca parle de drogue',
             'category' => 'category_Action',
-            'reference' => 'program_BreakingBad'
+            'reference' => 'program_3'
         ],
         [
             'title' => 'game of thrones',
             'synopsis' => 'Tout ca pour un siege',
             'category' => 'category_Fantastique',
-            'reference' => 'program_GameOfThrones'
+            'reference' => 'program_4'
         ],
         [
             'title' => 'courtney fox',
             'synopsis' => 'Ouai alors c\'est vieux j\'assume ! ',
             'category' => 'category_Aventure',
-            'reference' => 'program_CourtneyFox'
+            'reference' => 'program_5'
         ]
     ];
     public function load(ObjectManager $manager)
