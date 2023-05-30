@@ -24,13 +24,11 @@ class ProgramController extends AbstractController
     }
 
     #[Route('program/show/{id<^[0-9]+$>}', name: 'program_show')]
-    public function show(int $id,ProgramRepository $programRepository): Response
+    public function show(Program $program): Response
     {
-        $program = $programRepository->findOneBy(['id'=>$id]);
-
         if (!$program){
             throw $this->createNotFoundException(
-                'No program with id :' . $id . 'found in programs table.'
+                'No program found in programs table.'
             );
         }
         return $this->render('program/show.html.twig',
@@ -38,11 +36,9 @@ class ProgramController extends AbstractController
         ]);
     }
 
-    #[Route("/program/{programId}/season/{seasonId}", name: 'program_season_show')]
-    public function showSeason(int $programId, int $seasonId, ProgramRepository $programRepository, SeasonRepository $seasonRepository): Response
+    #[Route("/program/{program}/season/{season}", name: 'program_season_show')]
+    public function showSeason(Program $program, Season $season): Response
     {
-        $program = $programRepository->findOneBy(['id'=>$programId]);
-        $season = $seasonRepository->find($seasonId);
 
         if (!$program || !$season) {
             throw $this->createNotFoundException('Program or Season not found');
@@ -53,6 +49,7 @@ class ProgramController extends AbstractController
             'season' => $season
         ]);
     }
+
     #[Route('/program/{program}/season/{season}/episode/{episode}', name: 'program_episode_show')]
     public function showEpisode(Program $program,Season $season, Episode $episode): Response
     {
