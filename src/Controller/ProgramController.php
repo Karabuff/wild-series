@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Season;
 use App\Entity\Episode;
 use App\Entity\Program;
+use App\Form\ProgramType;
 use App\Repository\SeasonRepository;
 use App\Repository\EpisodeRepository;
 use App\Repository\ProgramRepository;
@@ -23,6 +24,20 @@ class ProgramController extends AbstractController
          ]);
     }
 
+    #[Route('/program/new', name: 'program_new')]
+    public function new(): Response
+    {
+        $program = new Program();
+
+
+        $form = $this->createForm(ProgramType::class, $program);
+        
+        // Render the form
+
+        return $this->render('program/new.html.twig', [
+            'form' => $form,
+        ]);
+    }
     #[Route('program/show/{id<^[0-9]+$>}', name: 'program_show')]
     public function show(int $id,ProgramRepository $programRepository): Response
     {
